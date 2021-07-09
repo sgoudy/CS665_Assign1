@@ -1,4 +1,4 @@
-package edu.bu.met.cs665.example1;
+package edu.bu.met.cs665.assg1;
 
 /**
  * This Class represents a Person.

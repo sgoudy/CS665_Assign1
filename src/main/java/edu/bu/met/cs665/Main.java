@@ -1,12 +1,13 @@
 package edu.bu.met.cs665;
 
-import edu.bu.met.cs665.example1.Person;
-import org.apache.log4j.Logger;
-// import org.apache.log4j.PropertyConfigurator;
+import edu.bu.met.cs665.assg1.*;
+
 
 public class Main {
 
-  private static Logger logger = Logger.getLogger(Main.class);
+  public static VendingMachine machine;
+  private static HotBev bev;
+  private static String type;
 
 
   /**
@@ -16,29 +17,75 @@ public class Main {
    */
   public static void main(String[] args) {
 
-    // This configuration is for setting up the log4j properties file.
-    // It is better to set this using java program arguments.
-    // PropertyConfigurator.configure("log4j.properties");
+    // stock a new machine
+    machine = stockMachine();
 
-    // Let us create an object of the Main class.
-    Main m = new Main();
+    // User chooses type
+    type = "espresso";
 
-    logger.info(m.doIt());
+    machine.checkAvailability(type);
+    if (machine.checkAvailability(type)){
+      System.out.println(type + " is available! Dispensing now...");
+      bev.addMilk(2);
+      bev.addSugar(2);
+      bev.addMilk(3);
+      bev.addSugar(16);
+      bev.getPrice();
+    }
 
-    logger.trace("This is a Trace Message for illustration purpose only! This is the highest level which prints all trace, debug, info, warn, error and fatal logs.");
-    logger.debug("This is a Debug Message for illustration purpose only! This log level prints debug, info, warn, error and fatal logs.");
-    logger.info("This is a Info Message for illustration purpose only! This log level prints info, warn, error and fatal logs.");
-    logger.warn("This is a Warn Message for illustration purpose only! This log level prints warn, error and fatal logs.");
-    logger.error("This is a Error Message for illustration purpose only! This log level prints error and fatal logs.");
-    logger.fatal("This is a Fatal Message for illustration purpose only! This log level is the loweest level, and prints only fatal logs.");
+    // User chooses another type
+    type = "black tea";
+
+    machine.checkAvailability(type);
+    if (machine.checkAvailability(type)){
+      System.out.println(type + " is available! Dispensing now...");
+      bev.addMilk(2);
+      bev.addSugar(2);
+      bev.addMilk(3);
+      bev.addSugar(2);
+      bev.getPrice();
+    }
 
   }
 
+  /**
+   *
+   * @return
+   */
+  public static VendingMachine stockMachine(){
+    VendingMachine machine = new VendingMachine();
+    machine.stockMachine();
+    return machine;
+  }
 
 
-  private String doIt() {
-    Person student = new Person("John", "Doe");
-    return student.getLastName() + ',' + student.getLastName();
+  /**
+   *
+   * @param type
+   * @return
+   */
+  public static HotBev makeDrink(String type) {
+    switch (type){
+      case "espresso":
+        bev = new Espresso();
+        break;
+      case "americano":
+        bev = new Americano();
+        break;
+      case "latte macchiato":
+        bev = new LatteMacchiato();
+        break;
+      case "green tea":
+        bev = new GreenTea();
+        break;
+      case "black tea":
+        bev = new BlackTea();
+        break;
+      case "yellow tea":
+        bev = new YellowTea();
+        break;
+    }
+    return bev;
   }
 
 }
