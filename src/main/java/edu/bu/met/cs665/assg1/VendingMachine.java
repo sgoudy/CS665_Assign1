@@ -1,3 +1,10 @@
+/*
+    Shelby Goudy
+    CS665 O2
+    Wk 1 Assignment
+    13 Jul 21
+*/
+
 package edu.bu.met.cs665.assg1;
 
 import edu.bu.met.cs665.Main;
@@ -6,25 +13,25 @@ public class VendingMachine{
 
     int espressoStock, lattemacchiatoStock, americanoStock, greenTeaStock, yellowTeaStock, blackTeaStock;
     int totalStock;
-    String[] type = {"Espresso", "macchiato", "americano", "green tea", "black tea", "yellow tea"};
+    HotBev espresso, americano, latteMacchiato, blackTea, yellowTea, greenTea;
 
     public void stockMachine(){
         int i = 0;
 
         // restock hot drinks on machine start
         while (i < 30){
-            HotBev espresso = new Espresso();
+            espresso = new Espresso();
             espressoStock++;
-            HotBev americano = new Americano();
+            americano = new Americano();
             americanoStock++;
-            HotBev latteMacchiato = new LatteMacchiato();
+            latteMacchiato = new LatteMacchiato();
             lattemacchiatoStock++;
 
-            HotBev blackTea = new BlackTea();
+            blackTea = new BlackTea();
             blackTeaStock++;
-            HotBev yellowTea = new YellowTea();
+            yellowTea = new YellowTea();
             yellowTeaStock++;
-            HotBev greenTea = new GreenTea();
+            greenTea = new GreenTea();
             greenTeaStock++;
             i++;
         }
@@ -92,6 +99,8 @@ public class VendingMachine{
                 } else {
                     available = false;
                 }
+            default:
+                Main.makeDrink("americano");
         }
         setTotalStock();
         return available;
