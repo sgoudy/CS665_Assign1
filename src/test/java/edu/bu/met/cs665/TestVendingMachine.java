@@ -31,26 +31,27 @@ public class TestVendingMachine {
   @Test
   public void testEspresso() {
     HotBev esp = new Espresso();
-    Assert.assertEquals("3.00", esp.getPrice());
+    Assert.assertEquals("Testing espresso for price..","3.00", esp.getPrice());
   }
 
   @Test
   public void testBlackTea() {
     HotBev bt = new BlackTea();
-    Assert.assertEquals("Black Tea", bt.getType());
+    Assert.assertEquals("Testing black tea for type..","Black Tea", bt.getType());
   }
 
   @Test
   public void testSetPriceEspresso() {
     HotBev esp = new Espresso();
     esp.setPrice("12.00");
-    Assert.assertEquals("12.00", esp.getPrice());
+    Assert.assertEquals("Testing set price feature for espresso..","12.00", esp.getPrice());
   }
 
   @Test
   public void testGreenTeaIngredients() {
     HotBev gt = new GreenTea();
-    Assert.assertEquals("green coloring, healthy flavor", gt.getIngredients());
+    Assert.assertEquals("Testing green tea check ingredients..","green coloring, healthy flavor",
+            gt.getIngredients());
   }
 
 }
