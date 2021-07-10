@@ -13,25 +13,24 @@ public class VendingMachine{
 
     int espressoStock, lattemacchiatoStock, americanoStock, greenTeaStock, yellowTeaStock, blackTeaStock;
     int totalStock;
-    HotBev espresso, americano, latteMacchiato, blackTea, yellowTea, greenTea;
 
     public void stockMachine(){
         int i = 0;
 
         // restock hot drinks on machine start
         while (i < 30){
-            espresso = new Espresso();
+            new Espresso();
             espressoStock++;
-            americano = new Americano();
+            new Americano();
             americanoStock++;
-            latteMacchiato = new LatteMacchiato();
+            new LatteMacchiato();
             lattemacchiatoStock++;
 
-            blackTea = new BlackTea();
+            new BlackTea();
             blackTeaStock++;
-            yellowTea = new YellowTea();
+            new YellowTea();
             yellowTeaStock++;
-            greenTea = new GreenTea();
+            new GreenTea();
             greenTeaStock++;
             i++;
         }
