@@ -17,6 +17,18 @@ public class TestVendingMachine {
   public TestVendingMachine() {}
 
   @Test
+  public void testTotalStock(){
+    VendingMachine vm = Main.stockMachine();
+
+    Assert.assertEquals(180, vm.getTotalStock());
+    vm.checkAvailability("americano");
+
+    vm.getTotalStock();
+    Assert.assertEquals(179, vm.getTotalStock());
+
+  }
+
+  @Test
   public void testEspresso() {
     HotBev esp = new Espresso();
     Assert.assertEquals("3.00", esp.getPrice());
@@ -36,15 +48,9 @@ public class TestVendingMachine {
   }
 
   @Test
-  public void testTotalStock(){
-    VendingMachine vm = Main.stockMachine();
-
-    Assert.assertEquals(180, vm.getTotalStock());
-    vm.checkAvailability("americano");
-
-    vm.getTotalStock();
-    Assert.assertEquals(179, vm.getTotalStock());
-
+  public void testGreenTeaIngredients() {
+    HotBev gt = new GreenTea();
+    Assert.assertEquals("green coloring, healthy flavor", gt.getIngredients());
   }
 
 }

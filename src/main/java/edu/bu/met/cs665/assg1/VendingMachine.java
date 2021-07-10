@@ -58,14 +58,6 @@ public class VendingMachine{
                 } else {
                     available = false;
                 }
-            case "americano":
-                if (this.americanoStock > 0) {
-                    Main.makeDrink(type);
-                    this.americanoStock--;
-                    break;
-                } else {
-                    available = false;
-                }
             case "latte macchiato":
                 if (this.lattemacchiatoStock > 0){
                     Main.makeDrink(type);
@@ -99,7 +91,13 @@ public class VendingMachine{
                     available = false;
                 }
             default:
-                Main.makeDrink("americano");
+                if (this.americanoStock > 0) {
+                    Main.makeDrink(type);
+                    this.americanoStock--;
+                    break;
+                } else {
+                    available = false;
+                }
         }
         setTotalStock();
         return available;

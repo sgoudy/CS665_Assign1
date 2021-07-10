@@ -12,7 +12,7 @@ import edu.bu.met.cs665.assg1.*;
 
 public class Main {
 
-  public static VendingMachine machine;
+  private static VendingMachine machine;
   private static HotBev bev;
   private static String type;
 
@@ -76,9 +76,6 @@ public class Main {
       case "espresso":
         bev = new Espresso();
         break;
-      case "americano":
-        bev = new Americano();
-        break;
       case "latte macchiato":
         bev = new LatteMacchiato();
         break;
@@ -91,6 +88,8 @@ public class Main {
       case "yellow tea":
         bev = new YellowTea();
         break;
+      default:
+        bev = new Americano();
     }
     return bev;
   }

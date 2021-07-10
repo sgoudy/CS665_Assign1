@@ -11,7 +11,7 @@ public class Espresso extends HotBev{
 
     public Espresso() {
         this.type = "Espresso";
-        this.ingredients = new String[]{"dark chocolate coloring", "bitter sweet flavor", "all the caffeine"};
+        this.ingredients = "dark chocolate coloring, bitter sweet flavor, all the caffeine";
         this.price = "3.00";
     }
 

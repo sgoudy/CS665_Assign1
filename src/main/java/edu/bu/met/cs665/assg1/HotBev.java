@@ -13,7 +13,7 @@ public abstract class HotBev implements ICondiments{
     int milk = 0;
 
     String type;
-    String[] ingredients;
+    String ingredients;
     String price;
 
 
@@ -28,6 +28,10 @@ public abstract class HotBev implements ICondiments{
 
     public String getType() {
         return type;
+    }
+
+    public String getIngredients() {
+        return ingredients;
     }
 
     @Override
