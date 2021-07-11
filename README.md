@@ -28,7 +28,7 @@ of the details of the drink are printed on the console so the user can see the p
 I did not intentionally use any design patterns, but I avoided duplicate as much as possible by creating a parent
 abstract class (HotBev) and the ICondiment interface.
 
-![VM UML](https://github.com/sgoudy/metcs/met-cs665-assignment-1-sgoudy/doc/VM_UML.png)
+![VM UML](https://github.com/metcs/met-cs665-assignment-1-sgoudy/blob/master/doc/VM_UML.png)
 
 # How to compile the project
 
