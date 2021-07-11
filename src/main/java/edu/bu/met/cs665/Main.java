@@ -12,8 +12,8 @@ import edu.bu.met.cs665.assg1.*;
 
 public class Main {
 
-//  private static VendingMachine machine;
-//  private static HotBev bev;
+  private static VendingMachine machine;
+  private static HotBev bev;
 
   /**
    * A main method to run examples.
@@ -21,10 +21,10 @@ public class Main {
    */
   public static void main(String[] args) {
 
-//    // stock a new machine
+    // stock a new machine
 //    machine = new VendingMachine();
 //    machine.stockMachine();
-//
+
 //    // User chooses drink
 //
 //    machine.viewInfo("espresso");
@@ -38,8 +38,7 @@ public class Main {
 //      bev.addSugar(2);
 //      bev.addMilk(3);
 //      bev.addSugar(16);
-//      bev.getPrice();
-//
+
 //
 //    // User chooses drink
 //
@@ -48,7 +47,6 @@ public class Main {
 //      bev.addSugar(2);
 //      bev.addMilk(3);
 //      bev.addSugar(2);
-//      bev.getPrice();
 //
 //
 //    // User chooses drink
@@ -58,7 +56,6 @@ public class Main {
 //      bev.addSugar(2);
 //      bev.addMilk(3);
 //      bev.addSugar(2);
-//      bev.getPrice();
 //
 //
 //    System.out.println(machine.getBlackTeaStock());

@@ -8,7 +8,6 @@
 package edu.bu.met.cs665;
 
 import edu.bu.met.cs665.assg1.*;
-import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -21,57 +20,79 @@ public class TestVendingMachine {
 
   public TestVendingMachine() {}
 
+
+  /**
+   * Instantiates new Vending Machine and stocks it full.
+   * @throws Exception
+   */
   @Before
   public void setUp() throws Exception {
-
-  }
-
-  @After
-  public void tearDown() throws Exception {
-
-  }
-
-  @Test
-  public void testMakeRequest(){
-    vm = new VendingMachine();
-    vm.makeRequest("black tea");
-      bev = new BlackTea();
-      bev.addMilk(2);
-      bev.addSugar(2);
-      bev.addMilk(3);
-      bev.addSugar(2);
-      Assert.assertEquals(3, bev.getMilk());
-  }
-
-
-  @Test
-  public void testStock(){
-
     vm = new VendingMachine();
     vm.stockMachine();
-    Assert.assertEquals(40, vm.getAmericanoStock());
+  }
 
+
+  /**
+   * Tests makeRequest method. Should instantiate new Black Tea, add sugars and milks
+   * and return message about only allowing 3 of each, maximum.
+   */
+  @Test
+  public void testMakeRequest(){
+    vm.makeRequest("black tea");
+    bev = new BlackTea();
+    bev.addMilk(2);
+    bev.addSugar(2);
+    bev.addMilk(3);
+    bev.addSugar(2);
+    Assert.assertEquals(3, bev.getMilk());
+  }
+
+
+  /**
+   * Tests stock change after instantiating new Americano.
+   */
+  @Test
+  public void testStock(){
+    Assert.assertEquals(40, vm.getAmericanoStock());
     vm.makeRequest("americano");
     Assert.assertEquals(39, vm.getAmericanoStock());
   }
 
 
+  /**
+   * Tests getPrice method after instantiating new Espresso.
+   */
   @Test
   public void testGetPriceEspresso() {
-
     HotBev esp = new Espresso();
     Assert.assertEquals("3.00", esp.getPrice());
   }
 
 
+  /**
+   * Tests getType method after instantiating new Black Tea.
+   */
   @Test
   public void testGetTypeBlackTea() {
-
     HotBev bt = new BlackTea();
     Assert.assertEquals("Black Tea", bt.getType());
   }
 
 
+  /**
+   * Tests addMilk for limit of 3 milks. Same for sugar.
+   */
+  @Test
+  public void testAddMilkBlackTea() {
+    HotBev bt = new BlackTea();
+    bt.addMilk(4); // does not allow for more than 3 milks
+    Assert.assertEquals(3, bt.getMilk());
+  }
+
+
+  /**
+   * Tests setPrice method after instantiating and changing the price of an Espresso.
+   */
   @Test
   public void testSetPriceEspresso() {
     HotBev esp = new Espresso();
@@ -80,6 +101,9 @@ public class TestVendingMachine {
   }
 
 
+  /**
+   * Tests getDescription method after instantiating new Green Tea.
+   */
   @Test
   public void testGetDescriptionGreenTea() {
 
