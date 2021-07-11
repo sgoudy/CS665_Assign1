@@ -1,108 +1,58 @@
-# Project Template
+# Assignment #1
 
-This is a Java Maven Project Template
+###Shelby Goudy, CS665 O2
+####Wk 1 Assignment, 13 Jul 21
 
+2.1 Task 1 : Implementation Description. (2 points )
+
+• How flexible is your implementation, e.g., how you add or remove in future new drink types?
+
+This implementation follows the professors recommendation to create as many Classes as possible. I tried to
+loosely couple items by creating each drink independent of the next. It's also built cohesively because right now
+the machine only brews hot beverages, so I created that as an abstract class from which all of the drinks inherit
+fields and methods. This allows for the addition of a section of cold beverages in the future. I had originally
+separated out coffee and tea, and then instantiated objects from those, but found that the two classes were so
+similar that I removed that altogether.
+
+
+• How is the simplicity and understandability of your implementation?
+
+This code is very simple. The vending machine class instantiates the machine and also provides functionality. Through
+it, the user can stock the machine, view info about a drink, and make a specific drink request (which creates the
+drink). When a drink is created, the user can then (through the ICondiments interface) add sugar and/or milk. All
+of the details of the drink are printed on the console so the user can see the price as well.
+
+
+• How you avoided duplicated code?
+
+I did not intentionally use any design patterns, but I avoided duplicate as much as possible by creating a parent
+abstract class (HotBev) and the ICondiment interface.
+
+![VM UML](https://github.com/sgoudy/metcs/met-cs665-assignment-1-sgoudy/doc/VM_UML.png)
 
 # How to compile the project
 
-We use Apache Maven to compile and run this project. 
-
-You need to install Apache Maven (https://maven.apache.org/)  on your system. 
-
-Type on the command line: 
-
-```bash
-mvn clean compile
-```
+>mvn clean compile
 
 # How to create a binary runnable package 
 
-
-```bash
-mvn clean compile assembly:single
-```
-
+>mvn clean compile assembly:single
 
 # How to run
 
-```bash
-mvn -q clean compile exec:java -Dexec.executable="edu.bu.met.cs665.Main" -Dlog4j.configuration="file:log4j.properties"
-```
-
-We recommand the above command for running the Main Java executable. 
-
-
-
+>mvn -q clean compile exec:java -Dexec.executable="edu.bu.met.cs665.Main" -Dlog4j.configuration="file:log4j.properties"
 
 # Run all the unit test classes.
 
+>mvn clean compile test checkstyle:check  spotbugs:check
 
-```bash
-mvn clean compile test checkstyle:check  spotbugs:check
-```
 
 # Using Spotbugs to find bugs in your project 
 
-To see bug detail using the Findbugs GUI, use the following command "mvn findbugs:gui"
+>mvn spotbugs:spotbugs
 
-Or you can create a XML report by using  
-
-
-```bash
-mvn spotbugs:gui 
-```
-
-or 
-
-
-```bash
-mvn spotbugs:spotbugs
-```
-
-
-```bash
-mvn spotbugs:check 
-```
-
-check goal runs analysis like spotbugs goal, and make the build failed if it found any bugs. 
-
-
-For more info see 
-https://spotbugs.readthedocs.io/en/latest/maven.html
-
-
-SpotBugs https://spotbugs.github.io/ is the spiritual successor of FindBugs.
-
+>mvn spotbugs:check
 
 # Run Checkstyle 
 
-CheckStyle code styling configuration files are in config/ directory. Maven checkstyle plugin is set to use google code style. 
-You can change it to other styles like sun checkstyle. 
-
-To analyze this example using CheckStyle run 
-
-```bash
-mvn checkstyle:check
-```
-
-This will generate a report in XML format
-
-
-```bash
-target/checkstyle-checker.xml
-target/checkstyle-result.xml
-```
-
-and the following command will generate a report in HTML format that you can open it using a Web browser. 
-
-```bash
-mvn checkstyle:checkstyle
-```
-
-```bash
-target/site/checkstyle.html
-```
-
-
-
-
+>mvn checkstyle:check
