@@ -12,10 +12,9 @@ import edu.bu.met.cs665.assg1.*;
 
 public class Main {
 
-  private static VendingMachine machine;
-  private static HotBev bev;
-
-
+//  private static VendingMachine machine;
+//  private static HotBev bev;
+  
   /**
    * A main method to run examples.
    * @param args not used
