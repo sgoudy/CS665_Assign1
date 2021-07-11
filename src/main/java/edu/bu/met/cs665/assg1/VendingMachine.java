@@ -13,7 +13,7 @@ public class VendingMachine{
 
     private int espressoStock, lattemacchiatoStock, americanoStock, greenTeaStock,
             yellowTeaStock, blackTeaStock;
-    private static HotBev bev;
+    private HotBev bev;
 
 
     /**
