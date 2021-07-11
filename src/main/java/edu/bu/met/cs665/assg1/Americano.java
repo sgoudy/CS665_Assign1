@@ -11,7 +11,7 @@ public class Americano extends HotBev{
 
     public Americano() {
         this.type = "Americano";
-        this.ingredients = "black coloring, sharp flavor";
+        this.description = "black coloring, sharp flavor";
         this.price = "2.00";
     }
 

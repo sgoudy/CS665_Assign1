@@ -8,50 +8,84 @@
 package edu.bu.met.cs665;
 
 import edu.bu.met.cs665.assg1.*;
+import org.junit.After;
 import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Test;
 
 
 public class TestVendingMachine {
 
+  HotBev bev;
+  VendingMachine vm;
+
   public TestVendingMachine() {}
 
-  @Test
-  public void testTotalStock(){
-    VendingMachine vm = Main.stockMachine();
+  @Before
+  public void setUp() throws Exception {
 
-    Assert.assertEquals(180, vm.getTotalStock());
-    vm.checkAvailability("americano");
+  }
 
-    vm.getTotalStock();
-    Assert.assertEquals(179, vm.getTotalStock());
+  @After
+  public void tearDown() throws Exception {
 
   }
 
   @Test
-  public void testEspresso() {
+  public void testMakeRequest(){
+    vm = new VendingMachine();
+    vm.makeRequest("black tea");
+      bev = new BlackTea();
+      bev.addMilk(2);
+      bev.addSugar(2);
+      bev.addMilk(3);
+      bev.addSugar(2);
+      Assert.assertEquals(3, bev.getMilk());
+  }
+
+
+  @Test
+  public void testStock(){
+
+    vm = new VendingMachine();
+    vm.stockMachine();
+    Assert.assertEquals(40, vm.getAmericanoStock());
+
+    vm.makeRequest("americano");
+    Assert.assertEquals(39, vm.getAmericanoStock());
+  }
+
+
+  @Test
+  public void testGetPriceEspresso() {
+
     HotBev esp = new Espresso();
-    Assert.assertEquals("Testing espresso for price..","3.00", esp.getPrice());
+    Assert.assertEquals("3.00", esp.getPrice());
   }
 
+
   @Test
-  public void testBlackTea() {
+  public void testGetTypeBlackTea() {
+
     HotBev bt = new BlackTea();
-    Assert.assertEquals("Testing black tea for type..","Black Tea", bt.getType());
+    Assert.assertEquals("Black Tea", bt.getType());
   }
+
 
   @Test
   public void testSetPriceEspresso() {
     HotBev esp = new Espresso();
     esp.setPrice("12.00");
-    Assert.assertEquals("Testing set price feature for espresso..","12.00", esp.getPrice());
+    Assert.assertEquals("12.00", esp.getPrice());
   }
 
+
   @Test
-  public void testGreenTeaIngredients() {
+  public void testGetDescriptionGreenTea() {
+
     HotBev gt = new GreenTea();
-    Assert.assertEquals("Testing green tea check ingredients..","green coloring, healthy flavor",
-            gt.getIngredients());
+    Assert.assertEquals("green coloring, healthy flavor",
+            gt.getDescription());
   }
 
 }

@@ -11,7 +11,7 @@ public class LatteMacchiato extends HotBev{
 
     public LatteMacchiato() {
         this.type = "Latte Macchiato";
-        this.ingredients = "light milk coloring, sweet flavor, milky taste";
+        this.description = "light milk coloring, sweet flavor, milky taste";
         this.price = "2.50";
 
     }

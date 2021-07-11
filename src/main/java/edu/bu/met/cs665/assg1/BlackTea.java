@@ -11,7 +11,7 @@ public class BlackTea extends HotBev {
 
     public BlackTea() {
         this.type = "Black Tea";
-        this.ingredients = "black coloring, dark flavor";
+        this.description = "black coloring, dark flavor";
         this.price = "2.00";
     }
 

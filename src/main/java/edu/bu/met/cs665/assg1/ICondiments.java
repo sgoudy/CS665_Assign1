@@ -7,7 +7,9 @@
 
 package edu.bu.met.cs665.assg1;
 
-
+/**
+ * Allows for the addition of milk and sugar to all Hot Beverages
+ */
 public interface ICondiments {
 
     void addSugar(int qty);

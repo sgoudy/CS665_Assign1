@@ -11,7 +11,7 @@ public class YellowTea extends HotBev{
 
     public YellowTea() {
         this.type = "Yellow Tea";
-        this.ingredients = "yellow coloring, light flavor";
+        this.description = "yellow coloring, light flavor";
         this.price = "2.00";
     }
 }
