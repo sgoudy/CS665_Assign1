@@ -1,9 +1,10 @@
 # Assignment #1
 
-###Shelby Goudy, CS665 O2
-####Wk 1 Assignment, 13 Jul 21
+### Shelby Goudy, CS665 O2
+#### Wk 1 Assignment, 13 Jul 21
 
-###Assumptions:
+## Assumptions:
+
 I imagined this to be a vending machine that has preset buttons, one for each type of drink offered (or something to 
 that effect, could also contain a menu.) I wanted the user to be able to view the description and price of an 
 item prior to purchasing, assuming there was no written menu external to the machine, and no person to answer their 
@@ -13,7 +14,7 @@ messages). I did not include any interface for taking the users payment, though 
 after selection.
 All code is run inside TestVendingMachine. Code in Main can be run to see more details results if uncommented.
 
-###Task 1: Implementation Description. (2 points )
+## Task 1: Implementation Description. (2 points )
 
 **How flexible is your implementation, e.g., how you add or remove in future new drink types?**
 
@@ -38,33 +39,33 @@ of the details of the drink are printed on the console so the user can see the p
 I did not intentionally use any design patterns, but I avoided duplicate as much as possible by creating a parent
 abstract class (HotBev) and the ICondiment interface.
 
-###Task 2: UML Class Diagram
+## Task 2: UML Class Diagram
 
-![VM UML](https://github.com/metcs/met-cs665-assignment-1-sgoudy/blob/master/doc/VM_UML.png)
+![VM UML](doc/VM_UML.png)
 
-# How to compile the project
+## How to compile the project
 
 ```mvn clean compile```
 
-# How to create a binary runnable package 
+## How to create a binary runnable package 
 
 ```mvn clean compile assembly:single```
 
-# How to run
+## How to run
 
 ```mvn -q clean compile exec:java -Dexec.executable="edu.bu.met.cs665.Main" -Dlog4j.configuration="file:log4j.properties"```
 
-# Run all the unit test classes.
+## Run all the unit test classes.
 
 ```mvn clean compile test checkstyle:check  spotbugs:check```
 
 
-# Using Spotbugs to find bugs in your project 
+## Using Spotbugs to find bugs in your project 
 
 ```mvn spotbugs:spotbugs```
 
 ```mvn spotbugs:check```
 
-# Run Checkstyle 
+## Run Checkstyle 
 
 ```mvn checkstyle:check```

@@ -7,7 +7,11 @@
 
 package edu.bu.met.cs665;
 
-import edu.bu.met.cs665.assg1.*;
+import edu.bu.met.cs665.vendingMachine.*;
+import edu.bu.met.cs665.beverages.BlackTea;
+import edu.bu.met.cs665.beverages.Espresso;
+import edu.bu.met.cs665.beverages.GreenTea;
+import edu.bu.met.cs665.beverages.HotBev;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -37,7 +41,7 @@ public class TestVendingMachine {
    * and return message about only allowing 3 of each, maximum.
    */
   @Test
-  public void testMakeRequest(){
+  public void makeRequest(){
     vm.makeRequest("black tea");
     bev = new BlackTea();
     bev.addMilk(2);
@@ -52,7 +56,7 @@ public class TestVendingMachine {
    * Tests stock change after instantiating new Americano.
    */
   @Test
-  public void testStock(){
+  public void stock(){
     Assert.assertEquals(40, vm.getAmericanoStock());
     vm.makeRequest("americano");
     Assert.assertEquals(39, vm.getAmericanoStock());
@@ -63,7 +67,7 @@ public class TestVendingMachine {
    * Tests getPrice method after instantiating new Espresso.
    */
   @Test
-  public void testGetPriceEspresso() {
+  public void getPriceEspresso() {
     HotBev esp = new Espresso();
     Assert.assertEquals("3.00", esp.getPrice());
   }
@@ -73,7 +77,7 @@ public class TestVendingMachine {
    * Tests getType method after instantiating new Black Tea.
    */
   @Test
-  public void testGetTypeBlackTea() {
+  public void getTypeBlackTea() {
     HotBev bt = new BlackTea();
     Assert.assertEquals("Black Tea", bt.getType());
   }
@@ -83,7 +87,7 @@ public class TestVendingMachine {
    * Tests addMilk for limit of 3 milks. Same for sugar.
    */
   @Test
-  public void testAddMilkBlackTea() {
+  public void addMilkBlackTea() {
     HotBev bt = new BlackTea();
     bt.addMilk(4); // does not allow for more than 3 milks
     Assert.assertEquals(3, bt.getMilk());
@@ -94,7 +98,7 @@ public class TestVendingMachine {
    * Tests setPrice method after instantiating and changing the price of an Espresso.
    */
   @Test
-  public void testSetPriceEspresso() {
+  public void setPriceEspresso() {
     HotBev esp = new Espresso();
     esp.setPrice("12.00");
     Assert.assertEquals("12.00", esp.getPrice());
@@ -105,7 +109,7 @@ public class TestVendingMachine {
    * Tests getDescription method after instantiating new Green Tea.
    */
   @Test
-  public void testGetDescriptionGreenTea() {
+  public void getDescriptionGreenTea() {
 
     HotBev gt = new GreenTea();
     Assert.assertEquals("green coloring, healthy flavor",

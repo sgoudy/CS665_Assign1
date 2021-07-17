@@ -5,9 +5,9 @@
     13 Jul 21
 */
 
-package edu.bu.met.cs665.assg1;
+package edu.bu.met.cs665.beverages;
 
-public class YellowTea extends HotBev{
+public class YellowTea extends HotBev {
 
     public YellowTea() {
         this.type = "Yellow Tea";

@@ -7,13 +7,14 @@
 
 package edu.bu.met.cs665;
 
-import edu.bu.met.cs665.assg1.*;
+import edu.bu.met.cs665.vendingMachine.*;
+import edu.bu.met.cs665.beverages.HotBev;
 
 
 public class Main {
 
-//  private static VendingMachine machine;
-//  private static HotBev bev;
+  private static VendingMachine machine;
+  private static HotBev bev;
 
   /**
    * A main method to run examples.
@@ -22,43 +23,43 @@ public class Main {
   public static void main(String[] args) {
 
     // stock a new machine
-//    machine = new VendingMachine();
-//    machine.stockMachine();
+    machine = new VendingMachine();
+    machine.stockMachine();
 
-//    // User chooses drink
-//
-//    machine.viewInfo("espresso");
-//    machine.viewInfo("black tea");
-//
-//    machine.makeRequest("green tea");
-//
-//
-//    bev = machine.makeRequest("espresso");
-//      bev.addMilk(2);
-//      bev.addSugar(2);
-//      bev.addMilk(3);
-//      bev.addSugar(16);
+    // User chooses drink
 
-//
-//    // User chooses drink
-//
-//    bev = machine.makeRequest("black tea");
-//      bev.addMilk(2);
-//      bev.addSugar(2);
-//      bev.addMilk(3);
-//      bev.addSugar(2);
-//
-//
-//    // User chooses drink
-//
-//     bev = machine.makeRequest("Americano");
-//      bev.addMilk(2);
-//      bev.addSugar(2);
-//      bev.addMilk(3);
-//      bev.addSugar(2);
-//
-//
-//    System.out.println(machine.getBlackTeaStock());
+    machine.viewInfo("espresso");
+    machine.viewInfo("black tea");
+
+    machine.makeRequest("green tea");
+
+
+    bev = machine.makeRequest("espresso");
+      bev.addMilk(2);
+      bev.addSugar(2);
+      bev.addMilk(3);
+      bev.addSugar(16);
+
+
+    // User chooses drink
+
+    bev = machine.makeRequest("black tea");
+      bev.addMilk(2);
+      bev.addSugar(2);
+      bev.addMilk(3);
+      bev.addSugar(2);
+
+
+    // User chooses drink
+
+     bev = machine.makeRequest("Americano");
+      bev.addMilk(2);
+      bev.addSugar(2);
+      bev.addMilk(3);
+      bev.addSugar(2);
+
+
+    System.out.println(machine.getBlackTeaStock());
   }
 
 }

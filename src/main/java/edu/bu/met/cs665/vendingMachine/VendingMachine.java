@@ -5,7 +5,7 @@
     13 Jul 21
 */
 
-package edu.bu.met.cs665.driver;
+package edu.bu.met.cs665.vendingMachine;
 
 import edu.bu.met.cs665.beverages.*;
 

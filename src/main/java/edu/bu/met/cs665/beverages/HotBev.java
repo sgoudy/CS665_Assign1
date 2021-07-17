@@ -5,12 +5,12 @@
     13 Jul 21
 */
 
-package edu.bu.met.cs665.assg1;
+package edu.bu.met.cs665.beverages;
 
 /**
  * Abstract parent class for all beverages
  */
-public abstract class HotBev implements ICondiments{
+public abstract class HotBev implements ICondiments {
 
     int sugar = 0;
     int milk = 0;
