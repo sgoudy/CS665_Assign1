@@ -7,14 +7,12 @@
 
 package edu.bu.met.cs665;
 
-import edu.bu.met.cs665.vendingMachine.*;
-import edu.bu.met.cs665.beverages.HotBev;
-
+import edu.bu.met.cs665.drinks.HotBeverages;
+import edu.bu.met.cs665.drinks.Milk;
+import edu.bu.met.cs665.drinks.Sugar;
+import edu.bu.met.cs665.machine.CoffeeMachine;
 
 public class Main {
-
-  private static VendingMachine machine;
-  private static HotBev bev;
 
   /**
    * A main method to run examples.
@@ -22,44 +20,19 @@ public class Main {
    */
   public static void main(String[] args) {
 
-    // stock a new machine
-    machine = new VendingMachine();
-    machine.stockMachine();
+    // REFACTORED *Singleton pattern
+    CoffeeMachine coffeeMachine = CoffeeMachine.getInstance();
+    // REFACTORED *State pattern
+    coffeeMachine.insertCard();
+    coffeeMachine.cardAccepted();
+    HotBeverages drink =
+        coffeeMachine.selectionMade("americano");
+    coffeeMachine.drinkDispensed();
 
-    // User chooses drink
-
-    machine.viewInfo("espresso");
-    machine.viewInfo("black tea");
-
-    machine.makeRequest("green tea");
-
-
-    bev = machine.makeRequest("espresso");
-      bev.addMilk(2);
-      bev.addSugar(2);
-      bev.addMilk(3);
-      bev.addSugar(16);
-
-
-    // User chooses drink
-
-    bev = machine.makeRequest("black tea");
-      bev.addMilk(2);
-      bev.addSugar(2);
-      bev.addMilk(3);
-      bev.addSugar(2);
-
-
-    // User chooses drink
-
-     bev = machine.makeRequest("Americano");
-      bev.addMilk(2);
-      bev.addSugar(2);
-      bev.addMilk(3);
-      bev.addSugar(2);
-
-
-    System.out.println(machine.getBlackTeaStock());
+    // REFACTORED *Decorator pattern
+    drink = new Sugar(drink);
+    drink = new Milk(drink);
+    System.out.println(drink.getPrice());
+    System.out.println(drink.getName());
   }
-
 }
