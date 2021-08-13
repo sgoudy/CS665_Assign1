@@ -44,7 +44,7 @@ public class CardInsertedState implements State {
   @Override
   public void cardDeclined() {
     System.out.println("Card declined!");
-    coffeeMachine.setState(coffeeMachine.getInsertCardState());
+    coffeeMachine.setState(coffeeMachine.getCardDeclinedState());
   }
 
   /**
@@ -64,8 +64,14 @@ public class CardInsertedState implements State {
 
   }
 
+  /**
+   * Returns string for testing.
+   *
+   * @return message, String
+   */
   @Override
-  public void soldOut() {
-    System.out.println("Sold Out.");
+  public String soldOut() {
+    String message = "Sold out";
+    return message;
   }
 }

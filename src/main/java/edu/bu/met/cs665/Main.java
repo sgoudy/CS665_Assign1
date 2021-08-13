@@ -26,7 +26,7 @@ public class Main {
     // REFACTORED *Singleton pattern
     CoffeeMachine coffeeMachine = CoffeeMachine.getInstance();
     // REFACTORED *State pattern
-    coffeeMachine.insertCard();
+
     coffeeMachine.cardInserted();
     coffeeMachine.cardDeclined();
 
@@ -52,10 +52,9 @@ public class Main {
     coffeeMachine.drinkDispensed(drink);
 
     // Insert a payment card for another drink
-    coffeeMachine.insertCard();
     coffeeMachine.cardInserted();
     coffeeMachine.cardAccepted();
-    drink = coffeeMachine.selectionMade("latte macchiato");
+    drink = coffeeMachine.selectionMade("espresso");
     coffeeMachine.drinkDispensed(drink);
 
     // Insert a payment card for another drink, but it's now SOLD OUT

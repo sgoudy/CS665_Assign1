@@ -90,9 +90,8 @@ public class CardAcceptedState implements State {
     // reduce vending machine quantity by 1
     coffeeMachine.setBevQty(qty);
 
-    // Set state to "Drink Dispensed"
-    coffeeMachine.setState(coffeeMachine.getDrinkDispensedState(bev));
     System.out.println("Pouring your " + bev.getName());
+    coffeeMachine.setState(coffeeMachine.getDrinkDispensedState(bev));
     return bev;
   }
 
@@ -101,6 +100,7 @@ public class CardAcceptedState implements State {
   }
 
   @Override
-  public void soldOut() {
+  public String soldOut() {
+    return null;
   }
 }

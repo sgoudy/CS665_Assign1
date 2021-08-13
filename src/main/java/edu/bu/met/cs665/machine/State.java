@@ -23,6 +23,6 @@ public interface State {
 
   void drinkDispensed(HotBeverages bev);
 
-  void soldOut();
+  String soldOut();
 
 }

@@ -23,7 +23,6 @@ public class DrinkDispensedState implements State {
 
   @Override
   public void insertCard() {
-
   }
 
   @Override
@@ -33,12 +32,10 @@ public class DrinkDispensedState implements State {
 
   @Override
   public void cardAccepted() {
-
   }
 
   @Override
   public void cardDeclined() {
-
   }
 
   /**
@@ -64,18 +61,17 @@ public class DrinkDispensedState implements State {
   public void drinkDispensed(HotBeverages bev) {
     System.out.println(
         "Enjoy!\n\tFor an additional charge, add milk or sugar by pressing 'Milk' or 'Sugar'");
-
     // Set Machine to Sold Out state if 0 drinks remaining
     if (coffeeMachine.getBevQty() == 0) {
       coffeeMachine.setState(coffeeMachine.getSoldOutState());
     } else {
-
       // Otherwise, reset to initial Insert Card state
       coffeeMachine.setState(coffeeMachine.getInsertCardState());
     }
   }
 
   @Override
-  public void soldOut() {
+  public String soldOut() {
+    return null;
   }
 }

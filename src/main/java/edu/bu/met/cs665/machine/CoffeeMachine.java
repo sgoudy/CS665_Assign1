@@ -132,16 +132,16 @@ public class CoffeeMachine {
   }
 
   public HotBeverages selectionMade(String drink) {
-    HotBeverages drink1 = state.selectionMade(drink);
-    return drink1;
+    return state.selectionMade(drink);
   }
 
   public void drinkDispensed(HotBeverages bev) {
     state.drinkDispensed(bev);
   }
 
-  public void soldOut() {
-    state.soldOut();
+  public String soldOut() {
+    String message = state.soldOut();
+    return message;
   }
 
   // --------- To swap between CoffeeMachine states --------------

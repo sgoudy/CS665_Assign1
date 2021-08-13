@@ -33,17 +33,15 @@ public class InsertCardState implements State {
 
   @Override
   public void cardAccepted() {
-
   }
 
   @Override
   public void cardDeclined() {
-
   }
 
   @Override
   public HotBeverages selectionMade(String drink) {
-    this.insertCard();
+    System.out.println("Please insert payment");
     return null;
   }
 
@@ -53,7 +51,10 @@ public class InsertCardState implements State {
   }
 
   @Override
-  public void soldOut() {
+  public String soldOut() {
+
     System.out.println("Sold Out.");
+    coffeeMachine.setState(coffeeMachine.getSoldOutState());
+    return null;
   }
 }

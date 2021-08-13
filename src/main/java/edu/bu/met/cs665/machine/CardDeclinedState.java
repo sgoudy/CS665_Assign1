@@ -22,6 +22,7 @@ public class CardDeclinedState implements State {
 
   @Override
   public void insertCard() {
+    coffeeMachine.setState(coffeeMachine.getInsertCardState());
   }
 
   @Override
@@ -40,7 +41,6 @@ public class CardDeclinedState implements State {
   public HotBeverages selectionMade(String drink) {
     System.out
         .println("Card was declined, please insert a different card before making a selection.");
-    coffeeMachine.setState(coffeeMachine.getInsertCardState());
     return null;
   }
 
@@ -49,7 +49,8 @@ public class CardDeclinedState implements State {
   }
 
   @Override
-  public void soldOut() {
+  public String soldOut() {
     System.out.println("Sold Out.");
+    return null;
   }
 }

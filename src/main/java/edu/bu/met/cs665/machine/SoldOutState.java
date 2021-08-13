@@ -22,37 +22,39 @@ public class SoldOutState implements State {
 
   @Override
   public void insertCard() {
-    System.out.println("Sold Out.");
+    System.out.println("SOLD OUT");
   }
 
   @Override
   public void cardInserted() {
-    System.out.println("Sold Out.");
+    System.out.println("SOLD OUT");
   }
 
   @Override
   public void cardAccepted() {
-    System.out.println("Sold Out.");
+    System.out.println("SOLD OUT");
   }
 
   @Override
   public void cardDeclined() {
-    System.out.println("Sold Out.");
+    System.out.println("SOLD OUT");
   }
 
   @Override
   public HotBeverages selectionMade(String drink) {
-    System.out.println("Sold Out.");
+    System.out.println("SOLD OUT");
     return null;
   }
 
   @Override
   public void drinkDispensed(HotBeverages bev) {
-    System.out.println("Sold Out.");
+    System.out.println("SOLD OUT");
   }
 
   @Override
-  public void soldOut() {
-    System.out.println("Sold Out.");
+  public String soldOut() {
+    String message = "Sold out";
+    System.out.println("SOLD OUT");
+    return message;
   }
 }
