@@ -1,3 +1,10 @@
+/*
+    Shelby Goudy
+    CS665 O2
+    Wk 6 Assignment
+    17 Aug 21
+*/
+
 package edu.bu.met.cs665.machine;
 
 import edu.bu.met.cs665.drinks.Americano;
@@ -8,6 +15,9 @@ import edu.bu.met.cs665.drinks.HotBeverages;
 import edu.bu.met.cs665.drinks.LatteMacchiato;
 import edu.bu.met.cs665.drinks.YellowTea;
 
+/**
+ * This class allows the user to select their desired drink
+ */
 public class CardAcceptedState implements State {
 
   HotBeverages bev;
@@ -19,51 +29,78 @@ public class CardAcceptedState implements State {
 
   @Override
   public void insertCard() {
-
   }
 
   @Override
-  public void cardAccepted(){
+  public void cardInserted() {
+  }
+
+  @Override
+  public void cardAccepted() {
   }
 
   @Override
   public void cardDeclined() {
   }
 
+  /**
+   * This is what creates the HotBeverages object and returns it for manipulation with the decorator
+   * classes, Milk and Sugar.
+   *
+   * @param drink String, input by respective button
+   * @return HotBeverages object if not sold out
+   */
   @Override
   public HotBeverages selectionMade(String drink) {
-    System.out.print("Dispensing...");
+    // Get quantity of machine and reduce when button is pressed for selection
+    int qty = coffeeMachine.getBevQty();
+
     if (drink.equals("espresso")) {
-      System.out.println("espresso");
+
       bev = new Espresso();
+      System.out.println(bev.getName() + "\n\tPrice: $" + bev.getPrice());
+
+      --qty;
     } else if (drink.equals("americano")) {
-      System.out.println("americano");
+
       bev = new Americano();
+      System.out.println(bev.getName() + "\n\tPrice: $" + bev.getPrice());
+      --qty;
     } else if (drink.equals("latte macchiato")) {
-      System.out.println("latte macchiato");
+
       bev = new LatteMacchiato();
+      System.out.println(bev.getName() + "\n\tPrice: $" + bev.getPrice());
+      --qty;
     } else if (drink.equals("black tea")) {
-      System.out.println("black tea");
+
       bev = new BlackTea();
+      System.out.println(bev.getName() + "\n\tPrice: $" + bev.getPrice());
+      --qty;
     } else if (drink.equals("yellow tea")) {
-      System.out.println("yellow tea");
+
       bev = new YellowTea();
-    } else if (drink.equals("green tea")){
-      System.out.println("green tea");
+      System.out.println(bev.getName() + "\n\tPrice: $" + bev.getPrice());
+      --qty;
+    } else if (drink.equals("green tea")) {
+
       bev = new GreenTea();
-    } else {
-      return null;
+      System.out.println(bev.getName() + "\n\tPrice: $" + bev.getPrice());
+      --qty;
     }
-    coffeeMachine.setState(coffeeMachine.getDrinkDispensedState());
+    // reduce vending machine quantity by 1
+    coffeeMachine.setBevQty(qty);
+
+    // Set state to "Drink Dispensed"
+    coffeeMachine.setState(coffeeMachine.getDrinkDispensedState(bev));
+    System.out.println("Pouring your " + bev.getName());
     return bev;
   }
 
   @Override
-  public void drinkDispensed() {
+  public void drinkDispensed(HotBeverages bev) {
   }
 
   @Override
   public void soldOut() {
-    System.out.println("Sold Out.");
   }
 }

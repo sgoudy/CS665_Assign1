@@ -1,7 +1,17 @@
+/*
+    Shelby Goudy
+    CS665 O2
+    Wk 6 Assignment
+    17 Aug 21
+*/
+
 package edu.bu.met.cs665.machine;
 
 import edu.bu.met.cs665.drinks.HotBeverages;
 
+/**
+ * This class enforces resetting of the coffee machine state to Insert Card state if the user
+ */
 public class CardDeclinedState implements State {
 
   CoffeeMachine coffeeMachine;
@@ -12,28 +22,30 @@ public class CardDeclinedState implements State {
 
   @Override
   public void insertCard() {
-    System.out.println("Please insert a new card");
+  }
+
+  @Override
+  public void cardInserted() {
   }
 
   @Override
   public void cardAccepted() {
-    System.out.println("Payment accepted");
   }
 
   @Override
   public void cardDeclined() {
-    System.out.println("Card declined.");
-
   }
 
   @Override
   public HotBeverages selectionMade(String drink) {
+    System.out
+        .println("Card was declined, please insert a different card before making a selection.");
+    coffeeMachine.setState(coffeeMachine.getInsertCardState());
     return null;
   }
 
   @Override
-  public void drinkDispensed() {
-
+  public void drinkDispensed(HotBeverages bev) {
   }
 
   @Override

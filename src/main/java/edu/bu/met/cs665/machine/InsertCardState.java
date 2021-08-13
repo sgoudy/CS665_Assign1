@@ -10,45 +10,46 @@ package edu.bu.met.cs665.machine;
 import edu.bu.met.cs665.drinks.HotBeverages;
 
 /**
- * This class doesn't allow for any operations until the inventory is reset.
+ * Initial state of machine when no card has been inserted and inventory > 0
  */
-public class SoldOutState implements State {
+public class InsertCardState implements State {
 
   CoffeeMachine coffeeMachine;
 
-  public SoldOutState(CoffeeMachine coffeeMachine) {
+  public InsertCardState(CoffeeMachine coffeeMachine) {
     this.coffeeMachine = coffeeMachine;
   }
 
   @Override
   public void insertCard() {
-    System.out.println("Sold Out.");
+    System.out.println("\nPlease insert a payment card.");
   }
 
   @Override
   public void cardInserted() {
-    System.out.println("Sold Out.");
+    System.out.println("Verifying payment, please wait...");
+    coffeeMachine.setState(coffeeMachine.getCardInsertedState());
   }
 
   @Override
   public void cardAccepted() {
-    System.out.println("Sold Out.");
+
   }
 
   @Override
   public void cardDeclined() {
-    System.out.println("Sold Out.");
+
   }
 
   @Override
   public HotBeverages selectionMade(String drink) {
-    System.out.println("Sold Out.");
+    this.insertCard();
     return null;
   }
 
   @Override
   public void drinkDispensed(HotBeverages bev) {
-    System.out.println("Sold Out.");
+
   }
 
   @Override
