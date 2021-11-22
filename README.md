@@ -3,6 +3,7 @@
 
 ## Assumptions:
 
+[Assignment 1 Details](https://github.com/sgoudy/CS665_Assign1/blob/master/CS665-Assignment-1.pdf)
 
 
 ## Task 1: Implementation Description. (2 points )
